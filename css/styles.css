@@ -2,10 +2,81 @@
     box-sizing: border-box;
 }
 
-h1 {
-    margin: 0;
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: rgb(78, 78, 78);
 }
 
-.container {
-    diplay: flex;
+header,
+main {
+    padding: 20px;
 }
+
+main {
+    padding-top: 0;
+}
+
+img {
+    border-radius: 50%;
+}
+
+h1 {
+    margin: 0;
+    padding: 10px;
+    font-size: 1.1em;
+}
+
+h3 {
+    margin-bottom: -5px;
+}
+
+p {
+    line-height: .5em;
+    color: rgb(131, 130, 130);
+    font-weight: 300;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.card {
+    border: 1px rgb(196, 196, 196) solid;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    flex-grow: 1;
+}
+
+.profile-image {
+    float: left;
+    padding-right: 20px;
+}
+
+.profile-text {
+    float: left;
+}
+
+
+@media (min-width: 768px) {
+    .card {
+
+    }
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+
+
+

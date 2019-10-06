@@ -40,6 +40,7 @@ hr {
     margin: 35px 0;
     border-top: 1px solid rgb(224, 224, 224);
     color: #fff;
+    width: 90%;
 }
 
 
@@ -89,18 +90,19 @@ hr {
   /* Modal Content/Box */
   .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 20% auto; 
     padding: 20px;
     border: 1px solid #888;
     width: 325px;
     text-align: center;
+    border-radius: 5px;
   }
 
   .modal-content .profile-image {
     display: block;
     text-align: center;
     margin: auto;
-    padding: 20px 75px;
+    padding: 20px 80px;
   }
 
   .modal-content p {
@@ -123,9 +125,18 @@ hr {
   }
 
 @media (min-width: 768px) {
-    .card {
+    .modal-content {
+        width: 425px;
+        margin: 13% auto; 
+      }
+    .modal-content .profile-image {
+        padding: 20px 130px;
+      }
+}
 
-    }
+@media (min-width: 1024px) {
+    .modal-content {
+        margin: 8% auto; 
 }
 
 .clearfix::after {

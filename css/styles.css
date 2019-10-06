@@ -36,6 +36,12 @@ p {
     font-weight: 300;
 }
 
+hr {
+    margin: 35px 0;
+    border-top: 1px solid rgb(224, 224, 224);
+    color: #fff;
+}
+
 
 .container {
     display: flex;
@@ -87,6 +93,18 @@ p {
     padding: 20px;
     border: 1px solid #888;
     width: 325px;
+    text-align: center;
+  }
+
+  .modal-content .profile-image {
+    display: block;
+    text-align: center;
+    margin: auto;
+    padding: 20px 75px;
+  }
+
+  .modal-content p {
+    line-height: 1.3;
   }
   
   /* The Close Button */

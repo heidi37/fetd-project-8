@@ -60,11 +60,14 @@ hr {
     padding: 20px;
     margin: 10px;
     flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 425px;
 }
 
 .profile-image {
     float: left;
-    padding-right: 20px;
+    margin-right: 20px;
+    
 }
 
 .profile-text {

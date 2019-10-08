@@ -34,6 +34,7 @@ p {
     line-height: .5em;
     color: rgb(131, 130, 130);
     font-weight: 300;
+    overflow-wrap: break-word;
 }
 
 hr {
@@ -140,13 +141,13 @@ hr {
 @media (min-width: 1024px) {
     .modal-content {
         margin: 8% auto; 
+    }
 }
-
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
-  }
+}
 
 
 

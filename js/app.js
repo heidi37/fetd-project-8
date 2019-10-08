@@ -1,39 +1,58 @@
+const container = document.getElementsByClassName("container")[1];
+
 // Get the modal
 var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
+
 var card = document.getElementsByClassName("card");
-var btn = document.getElementById("myBtn");
+
+
+window.addEventListener('load', function () {
+  container.addEventListener('click', (e) => {
+    if (e.target.parentElement.parentElement.className === "card"
+    || e.target.parentElement.className === "card"
+    || e.target.className === "card") {
+
+      // function generateModal(data) {
+      
+      // let html =
+      // `
+      // <div id="myModal" class="modal">
+      // <div class="modal-content">
+      //   <span class="close">&times;</span>
+      //   <img class="profile-image" src='${data[i].picture.large}' alt='${data[i].name.first} ${data[i].name.last}' />
+      //   <h3>${data[i].name.first} ${data[i].name.last}</h3>
+      //   <p>${data[i].email}</p>
+      //   <p>${data[i].location.city}</p>
+      //   <hr>
+      //   <p>${data[i].cell}</p>
+      //   <p>${data[i].dob.date}</p>
+      //   <p>${data[i].street} ${data[i].city}, ${data[i].state} ${data[i].postcode}</p>
+      //   </div>
+      // `;
+      // container.innerHTML += html;
+      // }
+      modal.style.display = "block";
+    }
+  });
+});
+  
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-
-// When the user clicks on the card, open the modal
-// for ( let i = 0; i < card.length; i++) {
-//   card[i].onclick = function() {
-//     modal.style.display = "block";
-//   }
-// }
-
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
-}
+};
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+};
 
-
-const container = document.getElementsByClassName("container")[1];
 
 fetch('https://randomuser.me/api/?results=12&nat=us')
   .then(checkStatus)
@@ -44,7 +63,7 @@ fetch('https://randomuser.me/api/?results=12&nat=us')
 
 
 function generateCards(data) {
-  for ( let i = 0; i < 13; i++) {
+  for ( let i = 0; i < data.length; i++) {
   let html =
   `<div class="card">
   <img class="profile-image" src='${data[i].picture.large}' alt='${data[i].name.first} ${data[i].name.last}' />

@@ -13,8 +13,10 @@ var card = document.getElementsByClassName("card");
 fetch('https://randomuser.me/api/?results=12&nat=us')
   .then(checkStatus)
   .then(response => response.json())
-  .then(data => generateCards(data.results))
-  .then(data => generateModals(data.results))
+  .then(function (data) {
+    generateCards(data.results);
+    generateModals(data.results);
+  })
   .catch(error => console.log('Looks like there was a problem', error))
 
   window.addEventListener('load', function () {
@@ -22,19 +24,21 @@ fetch('https://randomuser.me/api/?results=12&nat=us')
       if (e.target.parentElement.parentElement.className === "card"
       || e.target.parentElement.className === "card"
       || e.target.className === "card") {
-          console.log('click')
-          // modal.style.display = "block";
+      
+          modal.style.display = "block";
+          //cardDiv.classList.add(`card-${id}`);
       }
     });
   });
 
   // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.querySelector(".close");
 
 // When the user clicks on <span> (x), close the modal
-// span.onclick = function() {
-//   modal.style.display = "none";
-// };
+span.onclick = function() {
+  modal.style.display = "none";
+};
+
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -62,7 +66,7 @@ function generateCards(data) {
 };
 
 function generateModals(data) {
-  for ( let i = 0; i < data.length; i++) {
+  let i = 1;
   let html =
    `<div class="modal-content">
     <span class="close">&times;</span>
@@ -78,7 +82,7 @@ function generateModals(data) {
     </div>
   `;
   modal.innerHTML += html;
-  } 
+  
 };
 
 

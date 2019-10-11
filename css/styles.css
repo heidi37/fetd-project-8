@@ -54,6 +54,7 @@ hr {
     width: 90%;
 }
 
+/* -------- Class Styles -------- */
 
 .container {
     display: flex;
@@ -92,6 +93,7 @@ hr {
 }
 
 /* -------- The Modal-------- */
+/* https://www.w3schools.com/howto/howto_css_modals.asp */
 
 /* The Modal (background) */
 .modal {
@@ -111,7 +113,6 @@ hr {
   
   /* Modal Content/Box */
   .modal-content {
-    /* display: none; */
     background-color: #fefefe;
     margin: 20% auto; 
     padding: 20px;
@@ -162,6 +163,8 @@ hr {
     cursor: pointer;
   }
 
+/* -------- Media Queries -------- */
+
 @media (min-width: 768px) {
     .modal-content {
         width: 425px;
@@ -177,11 +180,7 @@ hr {
         margin: 8% auto; 
     }
 }
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
+
 
 
 

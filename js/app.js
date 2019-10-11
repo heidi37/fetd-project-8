@@ -46,9 +46,7 @@ fetch('https://randomuser.me/api/?results=12&nat=us')
       || e.target.parentElement.className === "card"
       || e.target.className === "card") {
             modal.style.display = "block";
-            // console.log(modal.children[cardIndex]);
-            // modal.children.hide();
-            // modal.children[cardIndex].show();
+            modal.children[cardIndex].style.display= "block";
       }
     });
   });
@@ -60,6 +58,7 @@ fetch('https://randomuser.me/api/?results=12&nat=us')
 window.addEventListener('DOMContentLoaded', (event) => {
   modal.onclick = function() {
     modal.style.display = "none";
+    modal.children[cardIndex].style.display= "none";
   };
 });
 
@@ -69,6 +68,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    modal.children[cardIndex].style.display= "none";
   }
 };
 
@@ -94,7 +94,7 @@ function generateModals(data) {
   for ( let i = 0; i < data.length; i++) {
     let html =
 
-   `<div class="modal-content">
+   `<div class="modal-content" id="m${[i]}">
     <span class="close">&times;</span>
     <img class="profile-image" src='${data[i].picture.large}' alt='${data[i].name.first} ${data[i].name.last}' />
     <h3>${data[i].name.first} ${data[i].name.last}</h3>

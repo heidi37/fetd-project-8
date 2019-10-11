@@ -6,7 +6,7 @@ var modal = document.getElementById("myModal");
 
 var card = document.getElementsByClassName("card");
 
-var showModal;
+var cardIndex;
 
 fetch('https://randomuser.me/api/?results=12&nat=us')
   .then(checkStatus)
@@ -24,12 +24,24 @@ fetch('https://randomuser.me/api/?results=12&nat=us')
       if (e.target.parentElement.parentElement.className === "card"
       || e.target.parentElement.className === "card"
       || e.target.className === "card") {
-      showModal = e.target.parentElement.id;
-      if(showModal >= 0){
-        console.log(showModal);
-        console.log(modal.firstElementChild.className);
-          modal.style.display = "block";
-      }
+        if(e.target.id !== '') {
+          cardIndex = e.target.id;
+          console.log(cardIndex);
+        }
+        if(e.target.parentElement.id !== '') {
+          cardIndex = e.target.parentElement.id;
+          console.log(cardIndex);
+        }
+        if(e.target.parentElement.parentElement.id !== '') {
+          cardIndex = e.target.parentElement.parentElement.id;
+           console.log(cardIndex);
+        }
+      // showModal = e.target.parentElement.id;
+      // if(showModal >= 0){
+      //   console.log(showModal);
+        // console.log(modal.firstElementChild.className);
+          // modal.style.display = "block";
+      // }
       }
     });
   });

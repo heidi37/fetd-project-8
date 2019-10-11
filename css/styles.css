@@ -95,6 +95,7 @@ hr {
   
   /* Modal Content/Box */
   .modal-content {
+    /* display: none; */
     background-color: #fefefe;
     margin: 20% auto; 
     padding: 20px;

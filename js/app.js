@@ -1,12 +1,13 @@
 const container = document.getElementsByClassName("container")[1];
 
-// Get the modal
-var modal = document.getElementById("myModal");
-
-
 var card = document.getElementsByClassName("card");
 
 var cardIndex;
+
+// Get the modal
+var modal = document.getElementById("myModal");
+// var modalContent = document.getElementsByClassName("modal-content")[0];
+// console.log(modalContent);
 
 fetch('https://randomuser.me/api/?results=12&nat=us')
   .then(checkStatus)
@@ -15,8 +16,6 @@ fetch('https://randomuser.me/api/?results=12&nat=us')
     generateCards(data.results);
     generateModals(data.results);
   })
-
-
   .catch(error => console.log('Looks like there was a problem', error))
 
   window.addEventListener('load', function () {
@@ -26,22 +25,30 @@ fetch('https://randomuser.me/api/?results=12&nat=us')
       || e.target.className === "card") {
         if(e.target.id !== '') {
           cardIndex = e.target.id;
-          console.log(cardIndex);
+          return cardIndex;
         }
         if(e.target.parentElement.id !== '') {
           cardIndex = e.target.parentElement.id;
-          console.log(cardIndex);
+          return cardIndex;
         }
         if(e.target.parentElement.parentElement.id !== '') {
           cardIndex = e.target.parentElement.parentElement.id;
-           console.log(cardIndex);
+          return cardIndex;
         }
-      // showModal = e.target.parentElement.id;
-      // if(showModal >= 0){
-      //   console.log(showModal);
-        // console.log(modal.firstElementChild.className);
-          // modal.style.display = "block";
-      // }
+      }
+    });
+  });
+
+
+  window.addEventListener('load', function () {
+    container.addEventListener('click', (e) => {
+      if (e.target.parentElement.parentElement.className === "card"
+      || e.target.parentElement.className === "card"
+      || e.target.className === "card") {
+            modal.style.display = "block";
+            // console.log(modal.children[cardIndex]);
+            // modal.children.hide();
+            // modal.children[cardIndex].show();
       }
     });
   });
@@ -87,7 +94,7 @@ function generateModals(data) {
   for ( let i = 0; i < data.length; i++) {
     let html =
 
-   `<div class="modal-content ${[i]}">
+   `<div class="modal-content">
     <span class="close">&times;</span>
     <img class="profile-image" src='${data[i].picture.large}' alt='${data[i].name.first} ${data[i].name.last}' />
     <h3>${data[i].name.first} ${data[i].name.last}</h3>

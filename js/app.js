@@ -4,10 +4,10 @@ var card = document.getElementsByClassName("card");
 
 var cardIndex;
 
-// Get the modal
 var modal = document.getElementById("myModal");
-// var modalContent = document.getElementsByClassName("modal-content")[0];
-// console.log(modalContent);
+
+var span;
+
 
 fetch('https://randomuser.me/api/?results=12&nat=us')
   .then(checkStatus)
@@ -39,7 +39,6 @@ fetch('https://randomuser.me/api/?results=12&nat=us')
     });
   });
 
-
   window.addEventListener('load', function () {
     container.addEventListener('click', (e) => {
       if (e.target.parentElement.parentElement.className === "card"
@@ -47,22 +46,18 @@ fetch('https://randomuser.me/api/?results=12&nat=us')
       || e.target.className === "card") {
             modal.style.display = "block";
             modal.children[cardIndex].style.display= "block";
+            
+            //   Get the <span> element that closes the modal
+            span = modal.children[cardIndex].firstElementChild;
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+              modal.style.display = "none";
+              modal.children[cardIndex].style.display= "none";
+            };
       }
     });
   });
-
-
-//   Get the <span> element that closes the modal
-// When the user clicks on <span> (x), close the modal
-
-window.addEventListener('DOMContentLoaded', (event) => {
-  modal.onclick = function() {
-    modal.style.display = "none";
-    modal.children[cardIndex].style.display= "none";
-  };
-});
-
-
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -72,21 +67,20 @@ window.onclick = function(event) {
   }
 };
 
-
 function generateCards(data) {
   for ( let i = 0; i < data.length; i++) {
-  let html =
-  `
-  <div class="card" id="${[i]}">
-  <img class="profile-image" src='${data[i].picture.large}' alt='${data[i].name.first} ${data[i].name.last}' />
-  <div class="profile-text">
-  <h3>${data[i].name.first} ${data[i].name.last}</h3>
-  <p>${data[i].email}</p>
-  <p>${data[i].location.city}</p>
-  </div>
-  </div>
-  `;
-  container.innerHTML += html;
+    let html =
+    `
+    <div class="card" id="${[i]}">
+    <img class="profile-image" src='${data[i].picture.large}' alt='${data[i].name.first} ${data[i].name.last}' />
+    <div class="profile-text">
+    <h3>${data[i].name.first} ${data[i].name.last}</h3>
+    <p>${data[i].email}</p>
+    <p>${data[i].location.city}</p>
+    </div>
+    </div>
+    `;
+    container.innerHTML += html;
   } 
 };
 
@@ -98,7 +92,7 @@ function generateModals(data) {
     <span class="close">&times;</span>
     <img class="profile-image" src='${data[i].picture.large}' alt='${data[i].name.first} ${data[i].name.last}' />
     <h3>${data[i].name.first} ${data[i].name.last}</h3>
-    <p>${data[i].email}</p>
+    <p><a href="mailto:${data[i].email}" target="_blank">${data[i].email}</a></p>
     <p>${data[i].location.city}</p>
     <hr>
     <p>${data[i].cell}</p>

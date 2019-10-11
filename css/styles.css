@@ -7,6 +7,15 @@ body {
     color: rgb(78, 78, 78);
 }
 
+a:link {
+    text-decoration: none;
+    color:  rgb(131, 130, 130);
+}
+
+a:hover {
+    color: rgba(101, 90, 165);
+}
+
 header,
 main {
     padding: 20px;
@@ -38,7 +47,8 @@ p {
 }
 
 hr {
-    margin: 35px 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
     border-top: 1px solid rgb(224, 224, 224);
     color: #fff;
     width: 90%;
@@ -63,6 +73,12 @@ hr {
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 425px;
+    transition-duration: 500ms;
+}
+
+.card:hover {
+    border: 1px rgba(101, 90, 165, 0.9) solid;
+    background-color: rgba(253, 240, 255, 0.274);
 }
 
 .profile-image {

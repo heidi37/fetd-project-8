@@ -6,9 +6,7 @@ var modal = document.getElementById("myModal");
 
 var card = document.getElementsByClassName("card");
 
-
-
-  
+var showModal;
 
 fetch('https://randomuser.me/api/?results=12&nat=us')
   .then(checkStatus)
@@ -17,6 +15,8 @@ fetch('https://randomuser.me/api/?results=12&nat=us')
     generateCards(data.results);
     generateModals(data.results);
   })
+
+
   .catch(error => console.log('Looks like there was a problem', error))
 
   window.addEventListener('load', function () {
@@ -24,20 +24,26 @@ fetch('https://randomuser.me/api/?results=12&nat=us')
       if (e.target.parentElement.parentElement.className === "card"
       || e.target.parentElement.className === "card"
       || e.target.className === "card") {
-      
+      showModal = e.target.parentElement.id;
+      if(showModal >= 0){
+        console.log(showModal);
+        console.log(modal.firstElementChild.className);
           modal.style.display = "block";
-          //cardDiv.classList.add(`card-${id}`);
+      }
       }
     });
   });
 
-  // Get the <span> element that closes the modal
-var span = document.querySelector(".close");
 
+//   Get the <span> element that closes the modal
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-};
+
+window.addEventListener('DOMContentLoaded', (event) => {
+  modal.onclick = function() {
+    modal.style.display = "none";
+  };
+});
+
 
 
 // When the user clicks anywhere outside of the modal, close it
@@ -52,7 +58,7 @@ function generateCards(data) {
   for ( let i = 0; i < data.length; i++) {
   let html =
   `
-  <div class="card">
+  <div class="card" id="${[i]}">
   <img class="profile-image" src='${data[i].picture.large}' alt='${data[i].name.first} ${data[i].name.last}' />
   <div class="profile-text">
   <h3>${data[i].name.first} ${data[i].name.last}</h3>
@@ -66,9 +72,10 @@ function generateCards(data) {
 };
 
 function generateModals(data) {
-  let i = 1;
-  let html =
-   `<div class="modal-content">
+  for ( let i = 0; i < data.length; i++) {
+    let html =
+
+   `<div class="modal-content ${[i]}">
     <span class="close">&times;</span>
     <img class="profile-image" src='${data[i].picture.large}' alt='${data[i].name.first} ${data[i].name.last}' />
     <h3>${data[i].name.first} ${data[i].name.last}</h3>
@@ -76,16 +83,14 @@ function generateModals(data) {
     <p>${data[i].location.city}</p>
     <hr>
     <p>${data[i].cell}</p>
-    <p>${data[i].dob.date}</p>
-    <p>${data[i].street} ${data[i].city}, ${data[i].state} ${data[i].postcode}</p>
+    <p>Birthday: ${data[i].dob.date.substring(5, 7)}/${data[i].dob.date.substring(8, 10)}/${data[i].dob.date.substring(0, 4)} </p>
+    <p>${data[i].location.street.number} ${data[i].location.street.name}, ${data[i].location.city}, ${data[i].location.state} ${data[i].location.postcode}</p>
     </div>
     </div>
   `;
   modal.innerHTML += html;
-  
+  }
 };
-
-
 
 
 // ------------------------------------------

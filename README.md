@@ -1,7 +1,4 @@
-# fetd-project-8
-Use an API to Create an Employee Directory
-
-# Styling a Chart Dashboard
+# Employee Directory
 This was a very early-stage project in the Team Treehouse [Front-End Web Development Tech Degree](https://teamtreehouse.com/techdegree/front-end-web-development) program. I completed the program in 2019. [View my Certificate](https://www.credential.net/1700e85d-d29e-493d-a28e-a8c1860459c8#acc.PS7ITKNb)
 
 The objective was to implement an employee directory layout using the [randomuser.me API](https://randomuser.me/), an open source API for generating random user data.

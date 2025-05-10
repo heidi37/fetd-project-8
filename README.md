@@ -13,7 +13,7 @@ The objective was to implement an employee directory layout using the [randomuse
 
 ## Optimizations
 
-- Text is hard to read,light gray text on white, possible accessibility issues
+- Text is hard to read, light gray text on white, possible accessibility issues
 
 ## Lessons Learned
 

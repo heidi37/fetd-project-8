@@ -3,7 +3,7 @@ This was a very early-stage project in the Team Treehouse [Front-End Web Develop
 
 The objective was to implement an employee directory layout using the [randomuser.me API](https://randomuser.me/), an open source API for generating random user data.
 
-<img src="./images/fetd8.png" alt="screenshot of employee directory" />
+<img src="./images/fetd8.gif" alt="screenshot of employee directory" />
 
 [View Live Project](https://heidifryzell.com/fetd-project-8/)
 
